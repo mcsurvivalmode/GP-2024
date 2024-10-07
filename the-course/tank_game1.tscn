@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dum0vq7fy15st"]
+[gd_scene load_steps=13 format=3 uid="uid://dum0vq7fy15st"]
 
 [ext_resource type="Script" path="res://root1.gd" id="1_027t5"]
 [ext_resource type="FontFile" uid="uid://0jk2p2kfmllu" path="res://fonts/Hyperspace Bold.otf" id="2_601f3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://spawner.gd" id="7_jndn7"]
 [ext_resource type="PackedScene" uid="uid://bwi6lmhwtpkeh" path="res://block.tscn" id="8_jabo1"]
 [ext_resource type="Theme" uid="uid://dyroetfulq0o6" path="res://bryans_theme.tres" id="9_uakw0"]
+[ext_resource type="PackedScene" uid="uid://wk5jgsobmh3w" path="res://bomb.tscn" id="10_jx4gl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m7bvt"]
 
@@ -19,7 +20,7 @@ script = ExtResource("1_027t5")
 custom_font = ExtResource("2_601f3")
 
 [node name="player" type="RigidBody2D" parent="." node_paths=PackedStringArray("bullet_spawn")]
-position = Vector2(441, 640)
+position = Vector2(447, 238)
 mass = 5.0
 linear_damp_mode = 1
 linear_damp = 2.0
@@ -77,5 +78,8 @@ offset_bottom = 50.0
 text = "Click the screen to create things to shoot"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="bomb" parent="." instance=ExtResource("10_jx4gl")]
+position = Vector2(236, 1245)
 
 [connection signal="timeout" from="player/Timer" to="player" method="_on_timer_timeout"]

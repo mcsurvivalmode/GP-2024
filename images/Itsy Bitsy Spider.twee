@@ -1,0 +1,473 @@
+:: StoryTitle
+Itsy Bitsy Spider
+
+
+:: StoryData
+{
+  "ifid": "A10CD813-6512-4D5A-A45F-257840D76977",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "The waterspout",
+  "zoom": 1
+}
+
+
+:: \ Be Rude {"position":"1400,1200","size":"100,100"}
+“Maybe you shouldn’t have flown directly into the raindrops then,” you giggle.
+
+“You’re making me lose my patience, young man!” He shouts. 
+
+''You notice his yellow face turn to a beet-red colour, and you can almost see steam coming from his ears.'' 
+
+[[Try to De-escalate the situation]]
+''[[Run!]]''
+
+
+
+:: "Where were you trying to go?" {"position":"1150,1200","size":"100,100"}
+“Funnily enough, I actually live near the top of this here spout!” he chuckles, “I went out to meet with my pals, and before we knew it, we were all knocked from the sky!” 
+
+“So, you’re trying to get home then?”
+
+“I sure am! I want to wait for the rain to stop, but the wife will kill me if I’m not back soon!”
+
+[[Offer Help]]
+
+
+
+:: AHHHHHH!!! {"position":"1500,1975","size":"100,100"}
+Lady elllis eyes are shut tight when you look at her.
+
+“It's ok!” You calm down. “I caught you.”
+
+She slowly opens her eyes. You see a sense of relief wash over her. 
+
+“Oh gosh, that was a close one.” She laughs nervously. You hold on tighter to the wall and continue on your way. 
+
+Finally, ''[[you make it!]]''
+
+
+
+:: Accept Flight {"position":"1075,1750","size":"100,100"}
+You hop onto Mr Wasp’s back, and the two of you quickly fly to the top of the building. 
+
+[[The Top]]
+
+
+
+:: Apologise {"position":"1525,1050","size":"100,100"}
+“Sorry Sir,” you mutter, “I guess this weather just brings out the worst of me.”
+
+“I suppose that’s alright, Lad.” He smiles. 
+
+[["Where were you trying to go?"]]
+
+
+
+:: Ask what happened to her {"position":"2000,925","size":"100,100"}
+You ask Lady Ellis what happened to her dress. 
+
+“I tried to climb that darn pipe, but with this dreadful weather I got flushed right out!” She exclaims, throwing her arms in the air in despair
+
+“Now my dress is ruined!”
+
+[[“I think you still look nice!”]]
+[[“Where are you headed?”]]
+
+
+
+:: Ask why {"position":"1750,1225","size":"100,100"}
+You decide to ask Lady Ellis her reason for wanting to get to the top of the building. 
+She hesitates before answering.
+
+“I wanted to prove to my father I could do it, he claims I'm too naive and dependant on others. I thought that if I was able to get to the top of that building, I'd prove him wrong.”
+
+[[“Let's prove it to him.”]]
+
+
+
+:: Attempt to climb the waterspout {"position":"1475,475","size":"100,100"}
+You reach up to try to climb the spout. However, the surface is too slippery for you to grab onto. //There must be another way around...// 
+
+[[Explore the area]] 
+
+
+:: Continue Climbing {"position":"1300,1750","size":"100,100"}
+You decline Mr Wasps offer, just in case his flying abilities still aren’t perfect. You continue climbing the web until finally, you’ve made it.
+
+[[The Top]]
+
+
+
+:: Explore the area {"position":"1775,425","size":"100,100"}
+As you look around, you see two distinct paths ahead of you, one to the left, and the other to the right. They are almost identical to each other, with no defining features to distinguish what may lie ahead on either path.  
+
+''Where will you go?'' 
+
+[[Turn left]]
+[[Turn right]]
+
+
+:: Go back {"position":"1775,775","size":"100,100"}
+[[Turn left]] 
+[[Turn right]] 
+
+
+:: Head back to the water spout {"position":"1725,1475","size":"100,100"}
+Together you and lady Ellis head back to the waterspout. 
+
+Feeling brave, you decide to come up with a plan. Staring up towards the top of the spout, shielding your eyes from the downpour of rain as it begins to form large puddles around you, you come up with two ideas.
+
+''You can either feel along the wall to try find any dry sections that could be used to climb up or the both of you can try wait out the storm and see if it will calm down?''
+
+[[Touch the wall]]
+[[Wait out the storm]]
+
+
+
+:: Ignore {"position":"1725,975","size":"100,100"}
+[[Go back]] 
+
+
+:: Insist you help {"position":"2075,1425","size":"100,100"}
+“Oh, won't you leave me alone!!” Lady Ellis snaps “//go find something else to do!!//”
+
+[[Walk away]]
+
+
+
+
+:: Introduce yourself {"position":"2000,750","size":"100,100"}
+"Oh dear, what on earth shall I do now...?" She appears to be mumbling to herself as she poorly attempts to pick bits of gravel and twigs off of her gown.  
+ 
+"Excuse me miss, I'm Mr Bitsy, are you doing alright?"  
+ 
+"Does it look like I'm alright!?" She snaps at you but quickly recollects herself. 
+
+"I'm terribly sorry for my manners, Mr Bitsy, my name is Lady Ellis."  
+ 
+[[Ask what happened to her]] 
+[[Ignore]] 
+
+
+:: Leave the alley {"position":"2200,1600","size":"100,100"}
+You feel a hand on your shoulder. Your body freezes. Unable to move the hand slowly makes it way to your neck. 
+
+You know you should fight back, but to paralysed out of fear. The figure creeps around you slowly, keeping a tight grip on your neck. Now in full view, you realize the figure was Lady Ellis. 
+
+You try to talk but her hands grip tightens on your neck, leaving you unable to speak. 
+
+“Please don't speak anymore, I really dislike your voice” She hissed. 
+
+You try with all your strength to losen her grip, but it doesn't work. Her free hand reached towards your forehead and suddenly, 
+
+''//CRACK!//''
+
+//Everything went black. //
+
+''THE END!''
+
+
+
+:: Offer Help {"position":"1175,1375","size":"100,100"}
+“Maybe we can help each other?” you suggest, “I’m trying to go that way too!”
+
+“That sounds wonderful!” Mr Wasp exclaims. “Let’s get going!”
+
+ [[The Climb]]
+
+
+
+:: Offer your help {"position":"2175,1225","size":"100,100"}
+Lady Ellis looks unimpressed by your offer. 
+
+“What makes you think I want your help?” she says sticking her nose up 
+
+“Well... I also want to make it to the top so I thought we could work together”
+
+“//Absolutely not!//” She scoffs. “Thank you for your offer.”
+Lady Ellis turns away and continues picking at her dress.
+
+[[Insist you help]]
+[[Walk away]]
+
+
+
+:: Run! {"position":"1375,1400","size":"100,100"}
+You quickly turn around and run back through the alley, your 8 little legs moving faster than they ever have. Every few seconds when you turn your head around, you can see Mr Wasp becoming smaller and smaller. ''You’re losing him!'' 
+
+When he finally disappears from your line of sight, you stop to catch your breath. You huff and puff and huff and-
+
+
+//You look down.// 
+
+
+''The tip of a stinger is now poking out of your abdomen.'' You try to exhale, but all that comes out is blood. 
+
+After what feels like a lifetime, you drop to the ground. As the world around you becomes blurry and distorted. You feel the rain finally come to an end.// The final thing you hear is a soft buzzing leaving from beside your body.//
+
+''THE END!''
+
+
+
+:: Talk to him {"position":"1425,675","size":"100,100"}
+You approach the finely dressed wasp to check on him.  
+
+[[“What seems to be the bother, sir?”]] 
+[[“Did you fall out of the sky just now? Are you some kind of nincompoop??”]] 
+[[Ignore]] 
+
+
+:: The Climb {"position":"1175,1575","size":"100,100"}
+You quickly spin up a long web, and throw it up as high as you can. It sticks to the pipe, and you and Mr Wasp begin your climb together.
+
+After a long time climbing, you’ve almost reached the top. You look down to Mr Wasp and notice that his wings have finally dried up, and he offers to fly you to the top. 
+
+''What do you choose?''
+
+[[Accept Flight]]
+[[Continue Climbing]]
+
+
+
+:: The End {"position":"1225,2075","size":"100,100"}
+//Now alone, at the top of the building, you stare off into the horizon for some time. 
+You’ve finally made it to where you want to be. Your long and tedious journey is finally about to pay off. 
+
+You walk towards the horizon, right to the edge of the roof.
+
+With one last deep breath in, you look down and step forward. //
+
+
+
+:: The Top {"position":"1175,1925","size":"100,100"}
+“Gosh, the sunset from here is astounding!” He remarks.
+The two of you watch as the sun slowly disappears below the horizon.
+
+
+“Welp, I best be off now, the wife won’t wait on me forever!” Mr Wasp chuckles. He gives you a firm handshake before buzzing off home. 
+
+[[The End]]
+
+
+
+:: The waterspout {"position":"1625,325","size":"100,100"}
+It's a cold February morning, the air is crisp. The sun is fighting through the clouds, shimmering off the fresh puddles. You scurry along the cobbled streets avoiding the falling droplets. The city is so peaceful in the early mornings, you can't imagine anything going wrong.  
+
+You find yourself in a dead end, every way you look there's high brick walls towering over you. Out of the corner of your eye you spot a waterspout. You crane your neck and see that it reaches the top. This is perfect, you'd have a view of the whole city from up there.  
+
+However, it has just rained, ''should you risk attempting to climb up the waterspout?''
+
+[[Attempt to climb the waterspout]]
+[[Explore the area]]
+
+
+
+
+
+:: Touch the wall {"position":"1625,1625","size":"100,100"}
+Lady Ellis beams with excitement as you share your plan with her. 
+
+“Yes! [[We can do it!]]” She exclaims.
+
+
+
+:: Try to De-escalate the situation {"position":"1550,1300","size":"100,100"}
+“Calm down, Sir! I-I didn’t mean it!”
+
+“It’s too late for that now.”
+
+“Sir, please! I’m sorry!” Fear fills your entire body.
+
+''The once kind man now seems like a form of the devil in disguise, who could snap at //any moment.//''
+
+''[[Run!]]''
+
+
+:: Turn left {"position":"1625,625","size":"100,100"}
+You venture to the left of the spout, to see what may await you there. Suddenly, a huge wasp falls to the ground with a loud thud.  
+
+''What will you do?''
+
+[[Talk to him]]
+[[Go back]]
+
+
+:: Turn right {"position":"1850,575","size":"100,100"}
+You turn to explore the right side. 
+
+As you follow the damp wall you spot someone in the distance.  There is another arachnid in front of you - she is dressed in sophisticated clothing, wearing a corset and a lace dress - you assume that she must be of royal descent. 
+
+''What will you do?''
+
+[[Introduce yourself]]
+[[Go back]]
+
+
+:: Wait out the storm {"position":"1850,1625","size":"100,100"}
+“This rain will not let up at all...” You turn dejectedly towards Lady Ellis as she looks at you apprehensively.
+
+“Well, we can’t just wait around here, we’ll freeze or come down with a cold!”
+
+“We won’t freeze, we can use these leaves as shelter from the storm.” You reassure her as you point over to a pile of soggy leaves and twigs.
+
+Lady Ellis sighs and helps you construct a shabby tent and you both take cover from the hailing rain.
+
+After a long while, //you begin to drift off to sleep//(link-reveal: "...")[(append: ?output1)[(link-reveal: ".")[(append: ?output2)[(link-reveal: "..")[(append: ?output3)[(link-reveal: "...")[(append: ?output4)[(append: ?output5)[''You are awakened by a soft rumbling in the ground that is quickly becoming more //[[intense.]]//''
+]]]]]]]]]
+
+|output1>[]
+
+|output2>[]
+
+|output3>[]
+
+|output4>[]
+
+|output5>[]
+
+
+
+
+
+
+
+
+
+
+
+:: Walk away {"position":"2275,1425","size":"100,100"}
+You leave Lady Ellis and walk back towards the pipe. You feel eyes on your back as you walk. You glance back to see lady Ellis was nowhere to be seen. 
+
+A sinking feeling washed over you. Suddenly a figure dashed from one side of the alley to the other. 
+
+Your heart was racing, ''what could it be?'' 
+
+[[Leave the alley]]
+
+
+
+:: We can do it! {"position":"1550,1800","size":"100,100"}
+You and lady Ellis approach the wall and slowly begin to climb the wall. 
+
+As you get higher, dry spots are getting harder to find and with the wind picking up, //it almost seems like it'll be impossible...// 
+
+“I cant hold on any longer!” Lady Ellis yelps. ''Her grips slips as the rain pours down.'' 
+
+''[[AHHHHHH!!!]]''
+
+
+
+:: intense. {"position":"1900,1775","size":"100,100"}
+As you pull yourself up from your makeshift bed, you go to open the tent to look out...
+
+//''SWOOSH''//
+
+Off into the distance, you can see a surge of water //gushing// down towards the bottom of the waterspout. You quickly look around trying to see where Lady Ellis is, and you see that she has already started climbing up to safety.
+
+“Lady Ellis, thank goodness you aren’t hurt! Quick, pull me up!”
+
+Lady Ellis reaches down and grabs a hold of your hand but hesitates for a moment... She glances up towards the rushing water and slowly peers back down at you...
+
+“Do you take me for a fool, Mr Bitsy... I will not let you hold me back and mistake me for a coward, just like my father.” 
+
+There is no emotion in her voice anymore, just animosity. Before you can even utter a word, her grip loosens, and you are dropped into the tidal waves below. Time slows down as you stare up at her turn away and you suddenly hit the surface.
+
+The water is thrashing around too much for you to keep your head above water and the more you struggle, the more you gasp for air causing water to enter your lungs.
+Your throat burns more and more as you continue to reach for anything to grab onto, //but after a while, your body gives up and is washed away down a drain.//
+
+''THE END!''
+
+
+
+:: you make it! {"position":"1425,2150","size":"100,100"}
+You pull yourself up onto the ledge and take a breath. The view better than you could of ever imagined. 
+
+“Wow...” Lady Ellis whispers to herself. “It's beautiful.”
+
+“I know.” you respond, even though you know she wasn't talking to you. 
+
+After a moment of silence, Lady Ellis stands up. “Well, I better be going!”
+
+You look at her confused. “Thank you for everything” she leans down and kisses your cheek. You watch her walk away, leaving you alone. Just like you were in the beginning. 
+
+//You turn back to face the view and take a deep breath.// 
+
+''THE END!''
+
+
+:: “Did you fall out of the sky just now? Are you some kind of nincompoop??” {"position":"1525,875","size":"100,100"}
+“My oh my, aren’t you a rude young lad! //Obviously// I fell from the sky, it’s because of this darned rain!” He shouts. 
+
+[[Apologise]]
+[[Ignore]]
+
+
+
+:: “I think you still look nice!” {"position":"1875,1100","size":"100,100"}
+Lady Ellis becomes flustered. 
+
+“Oh, don't be silly...” She giggles as she lightly fans her face, “I just want to make it to the top of that building.”
+
+[[Offer your help]]
+[[Ask why]]
+
+
+
+:: “I’m sorry to hear that, Mister.” {"position":"1325,1000","size":"100,100"}
+“No need to apologise, young lad, there’s nothing you could have done,” he sighs. 
+
+“I suppose I’m not the spry young wasp I used to be...I better stay at home during this weather from now on.”
+
+[["Where were you trying to go?"]]
+[[You should have thought about this -> Be Rude]]
+
+
+
+:: “Let's prove it to him.” {"position":"1900,1450","size":"100,100"}
+“I'm sure if we work together, we will be able to make it to the top!” 
+
+“Oh, you don't have to do that for me” she says turning away. 
+
+“It's really not a bother!” You insist, “I also want to make it to the top, if we climbed it together, you'd be helping me out.”
+
+Lady Ellis thinks for a moment, turning back to face you. 
+
+“Ok let's do it!” she grins. 
+
+[[Head back to the water spout]]
+
+
+
+:: “Prove you could do what?” {"position":"1950,1250","size":"100,100"}
+You decide to pry a little more, this time you are definitely over stepping. Lady Ellis seems hesitant to answer, but you see her shoulders relax before she speaks. 
+
+“To prove to my father that I could be independent.” She sighed.
+
+“But look how well that is going” Lady Ellis gestured to her now ruined dress. 
+
+[[“Let's prove it to him.”]]
+
+
+
+:: “What seems to be the bother, sir?” {"position":"1250,850","size":"100,100"}
+“It seems like these old wings can’t handle what they once could..” Mr. Wasp sighs. 
+“I’ve been knocked from the sky by this //dastardly// rain!” 
+
+ [[“I’m sorry to hear that, Mister.”]] 
+ [["Where were you trying to go?"]] 
+
+
+:: “Where are you headed?” {"position":"2175,1025","size":"100,100"}
+Lady Ellis sighs and looks up. 
+
+“I just wanted to make it to the top...”
+
+“You got any business up there?” You quiz her, slightly worried you are over stepping.
+
+Lady Ellis continues to look up at the rooftops. 
+“I just wanted to prove...” She starts, “I just wanted to prove that I could do it.”
+
+[[“Prove you could do what?”]]
+[[Offer your help]]
+

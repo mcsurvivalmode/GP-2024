@@ -7,6 +7,7 @@
 [node name="root" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_unoke")]
+rotation = 1.5708
 
 [node name="Sprite2D2" parent="player" index="2"]
 position = Vector2(166, -62)

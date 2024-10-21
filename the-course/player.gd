@@ -11,28 +11,36 @@ const TURN_RATE = 180
 func _print_stuff():
 	DebugDraw2D.set_text("pos", position)
 	DebugDraw2D.set_text("rotation", rotation)
+	DebugDraw2D.set_text("rotation deg", rad_to_deg(rotation))
+	DebugDraw2D.set_text("transform.x", transform.x)
+	DebugDraw2D.set_text("transform.y", transform.y)
+	DebugDraw2D.set_text("gobal_transform.x", global_transform.x)
+	DebugDraw2D.set_text("gobal_transform.y", global_transform.y)
+	DebugDraw2D.set_text("vel", velocity)
 
 
 
 func _physics_process(delta: float) -> void:
+	_print_stuff()
+	pass
 	
-	var r = Input.get_axis("turn_left", "turn_right")
-	print(r)
-
-	var rot = deg_to_rad(r * TURN_RATE * delta)
-	rotate(rot)
-	
-	var f = Input.get_axis("move_backwards", "move_forwards")
-
-	var vel = transform.y * f * SPEED
-	print(transform.y)
-	velocity = vel
-	
-	
-	if Input.is_action_pressed("fire"):
-		var b = bullet_scene.instantiate()
-		b.global_position = bullet_spawn_point.global_position
-		b.global_rotation = bullet_spawn_point.global_rotation
-		get_parent().add_child(b)
-	
-	move_and_slide()
+	#var r = Input.get_axis("turn_left", "turn_right")
+	#print(r)
+#
+	#var rot = deg_to_rad(r * TURN_RATE * delta)
+	#rotate(rot)
+	#
+	#var f = Input.get_axis("move_backwards", "move_forwards")
+#
+	#var vel = transform.y * f * SPEED
+	#print(transform.y)
+	#velocity = vel
+	#
+	#
+	#if Input.is_action_pressed("fire"):
+		#var b = bullet_scene.instantiate()
+		#b.global_position = bullet_spawn_point.global_position
+		#b.global_rotation = bullet_spawn_point.global_rotation
+		#get_parent().add_child(b)
+	#
+	#move_and_slide()

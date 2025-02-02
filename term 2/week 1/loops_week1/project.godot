@@ -10,10 +10,7 @@ config_version=5
 
 [application]
 
-config/name="week_1_loops"
+config/name="Loops_week1"
+run/main_scene="uid://dmn8lx4uaopjx"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
-
-[rendering]
-
-renderer/rendering_method="forward_plus"

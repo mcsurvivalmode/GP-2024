@@ -12,5 +12,9 @@ func _ready() -> void: #part 1
 		print(num)
 		num = num -1 
 		
-	
+	for x in range(3):
+		for y in range(3):
+			print("(%d, %d)" % [x, y])
+			
+			
 pass

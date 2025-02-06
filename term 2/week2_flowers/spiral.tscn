@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7sioyy3gu1h7"]
 
-[ext_resource type="Script" uid="uid://bkq2un5qj1d1f" path="res://gen_art.gd" id="1_3lw7s"]
+[ext_resource type="Script" path="res://gen_art.gd" id="1_3lw7s"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="spiral" type="Node2D" parent="."]
-position = Vector2(470, 293)
+position = Vector2(509, 272)
 script = ExtResource("1_3lw7s")
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="."]
@@ -13,6 +13,22 @@ offset_left = 18.0
 offset_top = 88.0
 offset_right = 125.0
 offset_bottom = 122.0
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 397.0
+offset_top = 6.0
+offset_right = 437.0
+offset_bottom = 29.0
+text = "MIDDLE
+"
+
+[node name="middle" type="HSlider" parent="."]
+offset_left = 476.0
+offset_top = 13.0
+offset_right = 675.0
+offset_bottom = 29.0
+min_value = 50.0
+value = 50.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 4.0
@@ -22,10 +38,10 @@ text = "NUM LINES:"
 metadata/_edit_use_anchors_ = true
 
 [node name="num_lines" type="HSlider" parent="."]
-offset_left = 99.0
-offset_top = 5.0
-offset_right = 319.0
-offset_bottom = 21.0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 324.0
+offset_bottom = 24.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="."]
@@ -44,5 +60,6 @@ offset_bottom = 67.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="color_changed" from="ColorPickerButton" to="spiral" method="_on_color_picker_button_color_changed"]
+[connection signal="value_changed" from="middle" to="spiral" method="_on_middle_value_changed"]
 [connection signal="value_changed" from="num_lines" to="spiral" method="_on_num_lines_value_changed"]
 [connection signal="value_changed" from="radius" to="spiral" method="_on_radius_value_changed"]

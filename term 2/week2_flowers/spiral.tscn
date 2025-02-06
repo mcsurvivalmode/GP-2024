@@ -8,6 +8,12 @@
 position = Vector2(470, 293)
 script = ExtResource("1_3lw7s")
 
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+offset_left = 18.0
+offset_top = 88.0
+offset_right = 125.0
+offset_bottom = 122.0
+
 [node name="Label" type="Label" parent="."]
 offset_left = 4.0
 offset_right = 96.0
@@ -37,5 +43,6 @@ offset_right = 310.0
 offset_bottom = 67.0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="color_changed" from="ColorPickerButton" to="spiral" method="_on_color_picker_button_color_changed"]
 [connection signal="value_changed" from="num_lines" to="spiral" method="_on_num_lines_value_changed"]
 [connection signal="value_changed" from="radius" to="spiral" method="_on_radius_value_changed"]

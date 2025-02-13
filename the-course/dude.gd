@@ -68,6 +68,8 @@ func _process(delta: float) -> void:
 	if ! Engine.is_editor_hint():	
 		$"../CanvasLayer/lives".text = "LIVES: " + str(lives)
 		
+		
+		
 		# if i can fire
 		if Input.is_action_pressed("fire") and can_fire and ammo > 0:
 			# create a bullet
@@ -103,8 +105,13 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity + acceleration * delta	
 		var c = move_and_collide(velocity * delta)
 		
+		if c and c.get_collider().is_in_group("loot_drop"):
+			print("ammo got")
+			ammo = ammo + 5
+			$"../CanvasLayer/ammo".text = "AMMO: " + str(ammo)
+			pass
 		# if i collide with ufo
-		if c and c.get_collider().is_in_group("ufo"):
+		if c and c.get_collider().is_in_group("u fo"):
 			print("I collided")
 			lives -= 1			
 			# set explosion color to be the color of the thing I collided with

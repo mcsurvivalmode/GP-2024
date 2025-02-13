@@ -1,27 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://5xmg4kyjea30"]
+[gd_scene load_steps=8 format=3 uid="uid://5xmg4kyjea30"]
 
 [ext_resource type="Script" path="res://shooter_game.gd" id="1_c5ar1"]
 [ext_resource type="PackedScene" uid="uid://dogoya3fntpbk" path="res://dude.tscn" id="2_gm47b"]
 [ext_resource type="PackedScene" uid="uid://7ffshnxf3qah" path="res://ufo.tscn" id="3_6xsbg"]
 [ext_resource type="PackedScene" uid="uid://nb8daasaeu3i" path="res://explosion.tscn" id="3_c5ar1"]
 [ext_resource type="Script" path="res://ufo_spawner.gd" id="4_gm47b"]
+[ext_resource type="Texture2D" uid="uid://c844yfbd26ea8" path="res://sprites/bug.png" id="6_2g0is"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkabi"]
+size = Vector2(99, 373)
 
 [node name="shooter_game" type="Node2D"]
 script = ExtResource("1_c5ar1")
 
 [node name="dude" parent="." instance=ExtResource("2_gm47b")]
-rotation = 0.863785
+rotation = 1.69381
 scale = Vector2(1, 1)
 size = 200
-line_size = 20
-color = Color(0.78222, 0.308211, 0.676905, 0.847059)
-speed = 500.0
-explosion = ExtResource("3_c5ar1")
-
-[node name="dude2" parent="." instance=ExtResource("2_gm47b")]
-rotation = 4.86589
-scale = Vector2(1, 1)
-size = 70
 line_size = 20
 color = Color(0.78222, 0.308211, 0.676905, 0.847059)
 speed = 500.0
@@ -66,3 +61,16 @@ offset_top = 419.0
 offset_right = 344.0
 offset_bottom = 494.0
 text = "ufo_COUNT: 0"
+
+[node name="loot_drop" type="CharacterBody2D" parent="."]
+position = Vector2(-294, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loot_drop"]
+position = Vector2(-2, 20)
+shape = SubResource("RectangleShape2D_jkabi")
+debug_color = Color(0.766514, 0.3471, 0.724535, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="loot_drop"]
+position = Vector2(-1, 7)
+scale = Vector2(2.4375, 2.1875)
+texture = ExtResource("6_2g0is")

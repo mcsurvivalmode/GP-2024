@@ -3,7 +3,7 @@ class_name DudeBullet
 
 extends CharacterBody2D
 
-@export var speed = 20
+@export var speed = 50
 @export var color:Color = Color.WHITE
 @export var explosion:PackedScene
 @export var line_size:float = 3

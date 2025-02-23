@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bah4lcyywlajs"]
+[gd_scene load_steps=6 format=3 uid="uid://bah4lcyywlajs"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_jr3yq"]
+[ext_resource type="Script" path="res://enemy_2.gd" id="2_dt4hv"]
+[ext_resource type="Script" path="res://enemy_3.gd" id="3_m8e88"]
+[ext_resource type="Script" path="res://enemy_4.gd" id="4_gqaab"]
+[ext_resource type="Script" path="res://enemy_5.gd" id="5_etnud"]
 
 [node name="enemy" type="Node2D"]
 position = Vector2(395, 216)
 script = ExtResource("1_jr3yq")
+
+[node name="enemy 2" type="Node2D" parent="."]
+script = ExtResource("2_dt4hv")
+
+[node name="enemy 3" type="Node2D" parent="."]
+script = ExtResource("3_m8e88")
+
+[node name="enemy 4" type="Node2D" parent="."]
+script = ExtResource("4_gqaab")
+
+[node name="enemy 5" type="Node2D" parent="."]
+script = ExtResource("5_etnud")

@@ -111,27 +111,44 @@ func _physics_process(delta: float) -> void:
 			$"../CanvasLayer/ammo".text = "AMMO: " + str(ammo)
 			pass
 		# if i collide with ufo
+<<<<<<< HEAD
 		if c and c.get_collider().is_in_group("u fo"):
+=======
+		if c:
+>>>>>>> 497471b29d8bc96e2cecbdf555f9b5ac346dd4d8
 			print("I collided")
-			lives -= 1			
-			# set explosion color to be the color of the thing I collided with
-			var e = explosion.instantiate()
-			e.modulate = c.get_collider().color
-			
-			get_parent().add_child(e)
-			e.global_position = self.global_position
-			e.emitting = true
-			ufo_count = ufo_count + 1
-			# delete the ufo
-			c.get_collider().queue_free()
-			# respawn the player
-			respawn()
+			if c.get_collider().is_in_group("ufo"):
+				print("I collided")
+				lives -= 1			
+				# set explosion color to be the color of the thing I collided with
+				var e = explosion.instantiate()
+				e.modulate = c.get_collider().color
+				
+				get_parent().add_child(e)
+				e.global_position = self.global_position
+				e.emitting = true
+				ufo_count = ufo_count + 1
+				# delete the ufo
+				c.get_collider().queue_free()
+				# respawn the player
+				respawn()
+			elif c.get_collider().is_in_group("health"):
+					lives += 1
+					$"PowerupSound".play()
+					c.get_collider().set_collision_layer_value(1, false)						
+					c.get_collider().die()
+			elif c.get_collider().is_in_group("ammo"):
+					ammo += 10
+					$"PowerupSound".play()
+					c.get_collider().set_collision_layer_value(1, false)											
+					c.get_collider().die()
 		else:
 			velocity = velocity * 0.99
 		
 	
 func _ready() -> void:
-	respawn()
+	if ! Engine.is_editor_hint():	
+		respawn()
 	pass
 
 

@@ -14,12 +14,19 @@ size = Vector2(99, 373)
 script = ExtResource("1_c5ar1")
 
 [node name="dude" parent="." instance=ExtResource("2_gm47b")]
+<<<<<<< HEAD
 rotation = 1.69381
 scale = Vector2(1, 1)
 size = 200
 line_size = 20
 color = Color(0.78222, 0.308211, 0.676905, 0.847059)
+=======
+rotation = 5.68262
+collision_mask = 5
+color = Color(0, 1, 0.25, 0.847059)
+>>>>>>> 497471b29d8bc96e2cecbdf555f9b5ac346dd4d8
 speed = 500.0
+lives = 10
 explosion = ExtResource("3_c5ar1")
 
 [node name="ufo_spawner" type="Marker2D" parent="."]

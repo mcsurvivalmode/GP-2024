@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://grlovks2xtnj"]
+
+[ext_resource type="Script" path="res://back_and_forth.gd" id="1_77wah"]
+[ext_resource type="Texture2D" uid="uid://c844yfbd26ea8" path="res://sprites/bug.png" id="2_e2y1m"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(212, 237)
+script = ExtResource("1_77wah")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e2y1m")

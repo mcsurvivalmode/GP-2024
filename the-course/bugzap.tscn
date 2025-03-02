@@ -47,6 +47,7 @@ points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
 
 [node name="laser_area" type="Area2D" parent="player/laser"]
+position = Vector2(0, 2)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/laser/laser_area"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bman82vrde2w1"]
+[gd_scene load_steps=9 format=3 uid="uid://bman82vrde2w1"]
 
-[ext_resource type="Texture2D" uid="uid://c844yfbd26ea8" path="res://sprites/bug.png" id="1_i20xl"]
+[ext_resource type="Texture2D" uid="uid://cfhjqtj5vtqn" path="res://my stuff/moon.png" id="1_pg0yd"]
 [ext_resource type="Script" path="res://back_and_forth.gd" id="2_4hw3s"]
 [ext_resource type="Script" path="res://character_body_2d.gd" id="3_j60qr"]
 [ext_resource type="Texture2D" uid="uid://bjwk84twthgk8" path="res://my stuff/star.png" id="4_swcsx"]
@@ -9,55 +9,43 @@
 size = Vector2(125, 119)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq5gd"]
-size = Vector2(1978, 77)
+size = Vector2(1978, 125.53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5wxm"]
+size = Vector2(191, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86pxg"]
+size = Vector2(36, 849)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="enemy" type="Sprite2D" parent="."]
-position = Vector2(417, 189)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
-script = ExtResource("2_4hw3s")
-
 [node name="enemy2" type="Sprite2D" parent="."]
-position = Vector2(606, 189)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
+position = Vector2(1162, 152)
+scale = Vector2(0.500555, -0.518923)
+texture = ExtResource("1_pg0yd")
 script = ExtResource("2_4hw3s")
 
 [node name="enemy3" type="Sprite2D" parent="."]
-position = Vector2(795, 189)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
+position = Vector2(560, 558)
+scale = Vector2(0.500555, -0.518923)
+texture = ExtResource("1_pg0yd")
 script = ExtResource("2_4hw3s")
 
 [node name="enemy4" type="Sprite2D" parent="."]
-position = Vector2(980, 189)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
+position = Vector2(1804, 362)
+scale = Vector2(0.500555, -0.518923)
+texture = ExtResource("1_pg0yd")
 script = ExtResource("2_4hw3s")
 
-[node name="enemy5" type="Sprite2D" parent="."]
-position = Vector2(1165, 185)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
-script = ExtResource("2_4hw3s")
-
-[node name="enemy6" type="Sprite2D" parent="."]
-position = Vector2(1342, 185)
-scale = Vector2(4.09781, 4.01627)
-texture = ExtResource("1_i20xl")
-script = ExtResource("2_4hw3s")
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="playr" type="CharacterBody2D" parent="."]
 position = Vector2(963, 917)
 script = ExtResource("3_j60qr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playr"]
 position = Vector2(0.796356, 5.46796)
 shape = SubResource("RectangleShape2D_n80nb")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="playr"]
 position = Vector2(7.29636, -0.0320435)
 scale = Vector2(0.434751, 0.300656)
 texture = ExtResource("4_swcsx")
@@ -67,4 +55,26 @@ position = Vector2(969, 1060)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-14, -10.5)
+scale = Vector2(1, -0.672343)
 shape = SubResource("RectangleShape2D_kq5gd")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-187, 989)
+scale = Vector2(1.89042, 1.67124)
+shape = SubResource("RectangleShape2D_e5wxm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(2108, 978)
+scale = Vector2(1.89042, 1.67124)
+shape = SubResource("RectangleShape2D_e5wxm")
+
+[node name="laser" type="Line2D" parent="."]
+position = Vector2(954, 825)
+
+[node name="laser_area" type="Area2D" parent="laser"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laser/laser_area"]
+position = Vector2(5, -414)
+shape = SubResource("RectangleShape2D_86pxg")

@@ -1,4 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cva1dinlforit"]
+[gd_scene load_steps=10 format=3 uid="uid://cva1dinlforit"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gl1df"]
+sky_top_color = Color(0.76569, 0.0810371, 0.433658, 1)
+sky_horizon_color = Color(0.709224, 0.562623, 0.691087, 1)
+ground_bottom_color = Color(0.0712076, 0.169454, 0.330692, 1)
+ground_horizon_color = Color(0.709224, 0.562623, 0.691087, 1)
+
+[sub_resource type="Sky" id="Sky_4863q"]
+sky_material = SubResource("ProceduralSkyMaterial_gl1df")
+
+[sub_resource type="Environment" id="Environment_8a7oo"]
+background_mode = 2
+sky = SubResource("Sky_4863q")
+ambient_light_color = Color(0.98064, 0.972382, 0.962045, 1)
+ambient_light_energy = 0.0
+reflected_light_source = 2
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_7vmvy"]
 size = Vector2(10.94, 10.36)
@@ -8,15 +26,18 @@ albedo_color = Color(0.957676, 0.382751, 0.694667, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_uav4i"]
 
-[sub_resource type="GDScript" id="GDScript_mr3vp"]
-script/source = "extends Node3D
+[sub_resource type="GDScript" id="GDScript_v6orm"]
+script/source = "extends CharacterBody3D
 
-@export var score = 0
-@export var speed:float = 10
-@export var rot_speed =0.5
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
 var controlling = true
+@export var rot_speed =180
+
 
 var relative:Vector2 = Vector2.ZERO
+
 
 func _input(event):
 	if event is InputEventMouseMotion and controlling:
@@ -28,42 +49,42 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		controlling = ! controlling
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass # Replace with function body.
+	pass
 
-@export var can_move:bool = true
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
-	rotate(transform.basis.x,deg_to_rad(- relative.y * deg_to_rad(rot_speed) * delta))
-	relative = Vector2.ZERO
-	if can_move:
-		var v = Vector3.ZERO
-		
-		var mult = 1
-		if Input.is_key_pressed(KEY_SHIFT):
-			mult = 3
-		
-		var turn = Input.get_axis(\"left\", \"right\") - v.x    
-		if abs(turn) > 0:   
-			position = position + global_transform.basis.x * speed * turn * mult * delta
-			# global_translate(global_transform.basis.x * speed * turn * mult * delta)
-		
-		var movef = Input.get_axis(\"forward\", \"back\")
-		if abs(movef) > 0:     
-			global_translate(global_transform.basis.z * speed * movef * mult * delta)
-		
-		var upanddown = Input.get_axis(\"forward\", \"back\")
-		if abs(upanddown) > 0:     
-			global_translate(- global_transform.basis.y * speed * upanddown * mult * delta)
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g25qc"]
 
+[sub_resource type="PrismMesh" id="PrismMesh_j7tto"]
+
 [node name="fps_game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8a7oo")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0152885, 0.999883, 0, -0.999883, -0.0152885, -0.0774022, 0.975248, -0.173644)
@@ -80,10 +101,14 @@ shape = SubResource("WorldBoundaryShape3D_uav4i")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099807, 0)
-script = SubResource("GDScript_mr3vp")
-speed = 1.0
+script = SubResource("GDScript_v6orm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_g25qc")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.210512, 0, 0, 0, 0.210512, 0, 0, 0, 0.0945657, 0.474055, 0.309308, -0.152489)
+mesh = SubResource("PrismMesh_j7tto")
+skeleton = NodePath("")

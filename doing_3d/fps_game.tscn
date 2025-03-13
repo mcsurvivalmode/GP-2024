@@ -1,4 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cva1dinlforit"]
+[gd_scene load_steps=11 format=3 uid="uid://cva1dinlforit"]
+
+[ext_resource type="Script" path="res://moving_cube.gd" id="1_08558"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gl1df"]
 sky_top_color = Color(0.76569, 0.0810371, 0.433658, 1)
@@ -108,7 +110,8 @@ shape = SubResource("CapsuleShape3D_g25qc")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.210512, 0, 0, 0, 0.210512, 0, 0, 0, 0.0945657, 0.474055, 0.309308, -0.152489)
+[node name="cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.210512, 0, 0, 0, 0.210512, 0, 0, 0, 0.0945657, -0.645416, 0.134578, -1.63312)
 mesh = SubResource("PrismMesh_j7tto")
 skeleton = NodePath("")
+script = ExtResource("1_08558")

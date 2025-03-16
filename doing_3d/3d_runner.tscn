@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfhlc7ebvksy4"]
+
+[ext_resource type="PackedScene" uid="uid://ck2p0e8w6vtv3" path="res://claire.fbx" id="1_fdop4"]
+
+[sub_resource type="Environment" id="Environment_hcdyw"]
+background_mode = 1
+background_color = Color(0.661664, 0.686476, 0.929048, 1)
+background_energy_multiplier = 0.95
+ambient_light_color = Color(0.545146, 0.759777, 0.936589, 1)
+ambient_light_energy = 0.0
+
+[sub_resource type="GDScript" id="GDScript_0086v"]
+script/source = "extends CharacterBody3D
+
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fp8qj"]
+height = 1.8853
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_221v6"]
+size = Vector3(1, 0.126099, 3.30954)
+
+[sub_resource type="BoxMesh" id="BoxMesh_adaei"]
+
+[node name="3d runner" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0965407, 0.995329, 0, -0.995329, -0.0965407, 0, 3.62075, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hcdyw")
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.874629, 0)
+script = SubResource("GDScript_0086v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="claire" parent="player/MeshInstance3D" instance=ExtResource("1_fdop4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.832744, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0122666, 0.100751, 0.0465767)
+shape = SubResource("CapsuleShape3D_fp8qj")
+
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 0.981293, 0.192522, 0, -0.192522, 0.981293, 0, 1.34249, 1.92173)
+
+[node name="start_platfortm" type="StaticBody3D" parent="."]
+transform = Transform3D(5.12886, 0, 0, 0, 5.12886, 0, 0, 0, 5.12886, 0, -2.6916, 1.44109)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="start_platfortm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00413425, 0.298337, -0.0113688)
+shape = SubResource("BoxShape3D_221v6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="start_platfortm"]
+transform = Transform3D(1, 0, 0, 0, 0.112396, 0, 0, 0, 3.29184, 0, 0.2884, 0)
+mesh = SubResource("BoxMesh_adaei")

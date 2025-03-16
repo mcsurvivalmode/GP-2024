@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cva1dinlforit"]
+[gd_scene load_steps=15 format=3 uid="uid://cva1dinlforit"]
 
 [ext_resource type="Script" path="res://moving_cube.gd" id="1_08558"]
+[ext_resource type="Script" path="res://BULLET_DUDE.gd" id="2_8fnjs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gl1df"]
 sky_top_color = Color(0.76569, 0.0810371, 0.433658, 1)
@@ -31,14 +32,13 @@ albedo_color = Color(0.957676, 0.382751, 0.694667, 1)
 [sub_resource type="GDScript" id="GDScript_v6orm"]
 script/source = "extends CharacterBody3D
 
-
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+@export var score = 0
+@export var speed:float = 10
+@export var rot_speed =0.5
 var controlling = true
-@export var rot_speed =180
-
 
 var relative:Vector2 = Vector2.ZERO
+
 
 
 func _input(event):
@@ -47,41 +47,55 @@ func _input(event):
 	if event.is_action_pressed(\"ui_cancel\"):
 		if controlling:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:            
+		else:			
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		controlling = ! controlling
-
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass
+	pass # Replace with function body.
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+@export var can_move:bool = true
+@export var ammo = 0
 
-	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-
-	move_and_slide()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
+	rotate(transform.basis.x,deg_to_rad(- relative.y * deg_to_rad(rot_speed) * delta))
+	
+	$\"../Label\".text = \"ammo: \" + str(ammo)
+	relative = Vector2.ZERO
+	if can_move:
+		var v = Vector3.ZERO
+		
+		var mult = 1
+		if Input.is_key_pressed(KEY_SHIFT):
+			mult = 3
+		
+		var turn = Input.get_axis(\"left\", \"right\") - v.x	
+		if abs(turn) > 0:   
+			position = position + global_transform.basis.x * speed * turn * mult * delta
+			# global_translate(global_transform.basis.x * speed * turn * mult * delta)
+		
+		var movef = Input.get_axis(\"forward\", \"back\")
+		if abs(movef) > 0:
+			velocity = global_transform.basis.z * speed * movef
+			move_and_slide()
+			# global_translate(global_transform.basis.z * speed * movef * mult * delta)
+					
 "
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g25qc"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_j7tto"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1dhcg"]
+font_color = Color(0.180392, 0.243137, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yn3oh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ygt1t"]
 
 [node name="fps_game" type="Node3D"]
 
@@ -102,16 +116,42 @@ surface_material_override/0 = SubResource("StandardMaterial3D_it5fx")
 shape = SubResource("WorldBoundaryShape3D_uav4i")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.099807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0563408, 0)
 script = SubResource("GDScript_v6orm")
+rot_speed = 180.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 shape = SubResource("CapsuleShape3D_g25qc")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 
+[node name="CSGBox3D" type="CSGBox3D" parent="CharacterBody3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.152908, -0.0560718, -0.0955887)
+size = Vector3(0.0339355, 0.0360718, 0.206421)
+
 [node name="cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.210512, 0, 0, 0, 0.210512, 0, 0, 0, 0.0945657, -0.645416, 0.134578, -1.63312)
 mesh = SubResource("PrismMesh_j7tto")
 skeleton = NodePath("")
 script = ExtResource("1_08558")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 37.0
+text = "ammo: "
+label_settings = SubResource("LabelSettings_1dhcg")
+
+[node name="ammo" type="Area3D" parent="."]
+script = ExtResource("2_8fnjs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ammo"]
+shape = SubResource("BoxShape3D_yn3oh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ammo"]
+transform = Transform3D(0.396229, 0, 0, 0, 0.169194, 0, 0, 0, 0.169194, -1.09473, 0.0935608, -0.753613)
+mesh = SubResource("BoxMesh_ygt1t")
+skeleton = NodePath("../CollisionShape3D")
+
+[connection signal="body_entered" from="ammo" to="ammo" method="_on_body_entered"]

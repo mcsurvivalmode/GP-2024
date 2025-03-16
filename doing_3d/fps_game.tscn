@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://cva1dinlforit"]
+[gd_scene load_steps=14 format=3 uid="uid://cva1dinlforit"]
 
 [ext_resource type="Script" path="res://moving_cube.gd" id="1_08558"]
-[ext_resource type="Script" path="res://BULLET_DUDE.gd" id="2_8fnjs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gl1df"]
 sky_top_color = Color(0.76569, 0.0810371, 0.433658, 1)
@@ -94,6 +93,7 @@ func _process(delta):
 font_color = Color(0.180392, 0.243137, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yn3oh"]
+size = Vector3(0.398987, 0.1828, 0.19458)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ygt1t"]
 
@@ -116,7 +116,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_it5fx")
 shape = SubResource("WorldBoundaryShape3D_uav4i")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0563408, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367899, 0)
 script = SubResource("GDScript_v6orm")
 rot_speed = 180.0
 
@@ -144,14 +144,13 @@ text = "ammo: "
 label_settings = SubResource("LabelSettings_1dhcg")
 
 [node name="ammo" type="Area3D" parent="."]
-script = ExtResource("2_8fnjs")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.161274, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ammo"]
+transform = Transform3D(1.00176, 0, 0, 0, 1.00176, 0, 0, 0, 1.51254, -1.11771, 0.151508, -0.81601)
 shape = SubResource("BoxShape3D_yn3oh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ammo"]
-transform = Transform3D(0.396229, 0, 0, 0, 0.169194, 0, 0, 0, 0.169194, -1.09473, 0.0935608, -0.753613)
+transform = Transform3D(0.396925, 0, 0, 0, 0.169491, 0, 0, 0, 0.255912, -1.13323, 0.156835, -0.824532)
 mesh = SubResource("BoxMesh_ygt1t")
 skeleton = NodePath("../CollisionShape3D")
-
-[connection signal="body_entered" from="ammo" to="ammo" method="_on_body_entered"]

@@ -16,3 +16,4 @@ func _on_body_entered(body: Node3D) -> void:
 	body.ammo += 1
 	queue_free()
 	pass # Replace with function body.
+					  

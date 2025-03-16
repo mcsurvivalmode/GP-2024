@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfhlc7ebvksy4"]
+[gd_scene load_steps=8 format=3 uid="uid://bfhlc7ebvksy4"]
 
 [ext_resource type="PackedScene" uid="uid://ck2p0e8w6vtv3" path="res://claire.fbx" id="1_fdop4"]
+[ext_resource type="Script" path="res://platform_spawner.gd" id="2_hunkq"]
 
 [sub_resource type="Environment" id="Environment_hcdyw"]
 background_mode = 1
@@ -84,3 +85,8 @@ shape = SubResource("BoxShape3D_221v6")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="start_platfortm"]
 transform = Transform3D(1, 0, 0, 0, 0.112396, 0, 0, 0, 3.29184, 0, 0.2884, 0)
 mesh = SubResource("BoxMesh_adaei")
+
+[node name="platform spawner" type="Node3D" parent="."]
+script = ExtResource("2_hunkq")
+spawn_distance = null
+platform_speed = null

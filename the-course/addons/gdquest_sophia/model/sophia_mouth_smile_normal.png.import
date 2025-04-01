@@ -2,21 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c36m8cv33f0yi"
-path="res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.ctex"
+uid="uid://cmj2t5f11f6nr"
+path.s3tc="res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.s3tc.ctex"
+path.etc2="res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
 source_file="res://addons/gdquest_sophia/model/sophia_mouth_smile_normal.png"
-dest_files=["res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.ctex"]
+dest_files=["res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.s3tc.ctex", "res://.godot/imported/sophia_mouth_smile_normal.png-b6ece1735e7d5bc3813bc63bb2f6a744.etc2.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -25,7 +26,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://sophia/model/sophia_mouth_smile_normal.png"
+roughness/src_normal="res://addons/gdquest_sophia/model/sophia_mouth_smile_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
